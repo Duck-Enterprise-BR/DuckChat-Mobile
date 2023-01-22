@@ -6,7 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 import Header from '../components/Header';
 import TextButton from '../components/TextButton';
 
-const Register = ({navigation}) => {
+const Register = ({ navigation }) => {
     const [textEmail, onChangeEmail] = React.useState();
     const [textPassWord, onChangePassword] = React.useState();
     const [textName, onChangeName] = React.useState();
