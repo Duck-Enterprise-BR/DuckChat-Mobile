@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 import Colors from '../Colors/Colors';
 
-const RegisterStyle = StyleSheet.create({
+const LoginStyle = StyleSheet.create({
   input: {
     height: 50,
     width: 300,
@@ -16,17 +16,10 @@ const RegisterStyle = StyleSheet.create({
   button: {
     borderWidth: 1,
     borderColor: Colors.violet,
+    height: 200
   },
 
-  textLogin: {
-    fontWeight: 'bold',
-    alignSelf: 'center',
-    textTransform: 'uppercase',
-    fontSize: 22,
-    color: Colors.violet
-  },
-
-  textLogin: {
+  textRegister: {
     fontWeight: 'bold',
     alignSelf: 'center',
     textTransform:'uppercase',
@@ -45,7 +38,7 @@ const RegisterStyle = StyleSheet.create({
     marginTop: 10
   },
 
-  register: {
+  login: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -60,4 +53,4 @@ const RegisterStyle = StyleSheet.create({
   }
 });
 
-export default RegisterStyle;
+export default LoginStyle;

@@ -1,6 +1,6 @@
-import React from "react";
-import { StyleSheet, TouchableOpacity, Text } from "react-native";
-import Colors from "../Colors/Colors";
+import React from 'react';
+import { StyleSheet, TouchableOpacity, Text } from 'react-native';
+import Colors from '../Colors/Colors';
 
 TouchableOpacity.defaultProps = { activeOpacity: 0.8 };
 
@@ -13,9 +13,10 @@ const Button = ({ onPress, title }) => (
 const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: 'center',
     padding: 10
   },
+
   ButtonContainer: {
     elevation: 8,
     backgroundColor: Colors.violet,
@@ -23,12 +24,13 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 12
   },
+  
   ButtonText: {
     fontSize: 18,
     color: Colors.white,
-    fontWeight: "bold",
-    alignSelf: "center",
-    textTransform: "uppercase"
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    textTransform: 'uppercase'
   }
 });
 
