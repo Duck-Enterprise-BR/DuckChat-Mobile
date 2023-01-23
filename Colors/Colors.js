@@ -4,7 +4,8 @@ const Colors = {
     white: '#fff',
     black: '#000',
     violet: '#4c51bf',
-    violet2: '#4c598a'
+    violet2: '#4c598a',
+    redError: '#C91E1E'
 }
 
 export default Colors;

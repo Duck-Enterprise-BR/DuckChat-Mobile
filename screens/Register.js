@@ -5,18 +5,32 @@ import RegisterStyle from '../style/RegisterStyle';
 import { StatusBar } from 'expo-status-bar';
 import Header from '../components/Header';
 import TextButton from '../components/TextButton';
+import Input from '../components/Input';
+import validator from 'validator';
 
 const Register = ({ navigation }) => {
-    const [textEmail, onChangeEmail] = React.useState();
-    const [textPassWord, onChangePassword] = React.useState();
-    const [textName, onChangeName] = React.useState();
-    const [textUserName, onChangeUserName] = React.useState();
+    const [textEmail, onChangeEmail] = React.useState('');
+    const [textPassWord, onChangePassword] = React.useState('');
+    const [textName, onChangeName] = React.useState('');
+    const [textUserName, onChangeUserName] = React.useState('');
+
+    const [isValidEmail, onChangeStateEmail] = React.useState(true);
+
+    function Register() {
+        if(validator.isEmail(textEmail)) {
+            onChangeStateEmail(true);
+            console.log('valid')
+        } else{
+            console.log('Invalid Email');
+            onChangeStateEmail(false);
+        }
+    }
 
     function Login() {
         console.log('Next screen')
         navigation.reset({
             index: 0,
-            routes: [{ name: "Login" }]
+            routes: [{name: "Login"}]
         })
     }
 
@@ -29,42 +43,39 @@ const Register = ({ navigation }) => {
             />
 
             <View style={RegisterStyle.register}>
-
-                <Text style={RegisterStyle.textInfo}>Your Name</Text>
-                <TextInput
-                    style={RegisterStyle.input}
+                <Input
+                    title='Your name'
                     onChangeText={onChangeName}
-                    placeholder='Example: Pato'
-                    value={textName}
+                    placeHolder='Example: Pato'
+                    text={textName}
                 />
 
-                <Text style={RegisterStyle.textInfo}>Create a UserName</Text>
-                <TextInput
-                    style={RegisterStyle.input}
+                <Input
+                    title='Create a username'
                     onChangeText={onChangeUserName}
-                    placeholder='Example: SrPatoS'
-                    value={textUserName}
+                    placeHolder='Example: SrPatoS'
+                    text={textUserName}
                 />
 
-                <Text style={RegisterStyle.textInfo}>Your Email</Text>
-                <TextInput
-                    style={RegisterStyle.input}
+                <Input
+                    title='Your Email'
                     onChangeText={onChangeEmail}
-                    placeholder='Example: srpatos@email.com'
-                    value={textEmail}
+                    placeHolder='Example: srpatos@email.com'
+                    text={textEmail}
+                    validInput={isValidEmail}
+                    errorText='Invalid email'
                 />
 
-                <Text style={RegisterStyle.textInfo}>Create a Password</Text>
-
-                <TextInput
-                    style={RegisterStyle.input}
+                <Input
+                    title='Create a password'
                     onChangeText={onChangePassword}
-                    placeholder='Example: MasterPato@2000'
-                    value={textPassWord}
+                    placeHolder='Example: MasterPato@2000'
+                    text={textPassWord}
                 />
 
                 <Button
                     title='Register'
+                    onPress={Register}
                 />
 
                 <TextButton

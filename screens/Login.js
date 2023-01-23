@@ -1,56 +1,64 @@
 import React from 'react';
-import { TextInput, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import Button from '../components/Button';
 import LoginStyle from '../style/LoginStyle';
 import { StatusBar } from 'expo-status-bar';
 import Header from '../components/Header';
 import TextButton from '../components/TextButton';
+import validator from 'validator';
+import Input from '../components/Input';
 
-const LoginScreen = ({navigation}) => {
+const LoginScreen = ({ navigation }) => {
+    //const validator = require('validator');
+    //const isEmail = validator.isEmail(textEmail); 
+    
+    const [textEmail, onChangeEmail] = React.useState('');
+    const [textPassWord, onChangePassword] = React.useState('');
+    
+    const [isValidEmail, onChangeStateEmail] = React.useState(true);
+    var isValidPassword = true;
 
-    function Login(){
-        console.log('Next screen')
-        navigation.reset({
-            index: 0,
-            routes: [{name: 'Chat'}]
-        })
+    function Login() {
+        if(validator.isEmail(textEmail)) {
+            onChangeStateEmail(true);
+        } else{
+            console.log('Invalid Email');
+            onChangeStateEmail(false);
+        }
     }
 
-    function Register(){
-        console.log('Next screen')
+    function Register() {
         navigation.reset({
             index: 0,
-            routes: [{name: 'Register'}]
+            routes: [{ name: 'Register' }]
         })
     }
-
-    const [textEmail, onChangeEmail] = React.useState();
-    const [textPassWord, onChangePassword] = React.useState();
 
     return (
         <View style={LoginStyle.base}>
-            <StatusBar style='auto' />
+            <StatusBar style='auto'/>
 
             <Header
                 title='Login'
             />
 
             <View style={LoginStyle.login}>
-                <Text style={LoginStyle.textInfo}>Your Email</Text>
-                <TextInput
-                    style={LoginStyle.input}
+                <Input
+                    title='Your Email'
                     onChangeText={onChangeEmail}
-                    placeholder='srpatos@email.com'
-                    value={textEmail}
+                    placeHolder='srpatos@email.com'
+                    text={textEmail}
+                    errorText='Invalid Email'
+                    validInput={isValidEmail}
                 />
 
-                <Text style={LoginStyle.textInfo}>Your Password</Text>
-
-                <TextInput
-                    style={LoginStyle.input}
+                <Input
+                    title='Your Password'
                     onChangeText={onChangePassword}
-                    placeholder='MasterPato@2000'
-                    value={textPassWord}
+                    placeHolder='MasterPato@2000'
+                    text={textPassWord}
+                    errorText='Invalid Password'
+                    validInput={isValidPassword}
                 />
 
                 <Button
@@ -59,8 +67,8 @@ const LoginScreen = ({navigation}) => {
                 />
 
                 <TextButton
-                title="Don't have an account? create one here"
-                onPress={Register}
+                    title="Don't have an account? create one here"
+                    onPress={Register}
                 />
             </View>
         </View>
