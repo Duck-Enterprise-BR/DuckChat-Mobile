@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, TextInput } from 'react-native';
-import Colors from '../colors/Colors';
+import Colors from '../Colors/Colors';
 
 const LoginStyle = StyleSheet.create({
   input: {

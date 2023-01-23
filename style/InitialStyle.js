@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import Colors from "../colors/Colors";
+import Colors from "../Colors/Colors";
 
 const InitialStyle = StyleSheet.create({
     base: {

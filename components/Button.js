@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text } from 'react-native';
-import Colors from '../colors/Colors';
+import Colors from '../Colors/Colors';
 
 TouchableOpacity.defaultProps = { activeOpacity: 0.8 };
 
