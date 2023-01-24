@@ -1,21 +1,20 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import ChatStyle from '../style/ChatStyle';
 import { StatusBar } from 'expo-status-bar';
 import Header from '../components/Header';
+import ChatListStyle from '../style/ChatListStyle';
+import Options from './Options';
 
-const Chat = () => {
+const ChatList = () => {
     return (
-        <View style={ChatStyle.base}>
+        <View style={ChatListStyle.base}>
             <StatusBar style='auto' />
             <Header
-                title='Chat'
+                title='DuckChat'
             />
-            <Text>
-                Chat
-            </Text>
+            <Options/>
         </View>
     )
 }
 
-export default Chat;
+export default ChatList;
