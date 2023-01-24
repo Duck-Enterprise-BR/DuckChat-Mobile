@@ -14,7 +14,7 @@ const Register = ({ navigation }) => {
     const [textName, onChangeName] = React.useState('');
     const [textUserName, onChangeUserName] = React.useState('');
 
-    const [isValidEmail, onChangeStateEmail] = React.useState(true);
+    const [isValidEmail, onChangeStateEmail] = React.useState(true);  
 
     function Login() {
         console.log('Next screen')
@@ -39,14 +39,14 @@ const Register = ({ navigation }) => {
             <View style={RegisterStyle.register}>
                 <Input
                     title='Your name'
-                    onChangeText={onChangeEmail}
-                    placeHolder='srpatos@email.com'
+                    onChangeText={onChangeName}
+                    placeHolder='Example: Pato'
                     text={textName}
                 />
                 <Input
                     title='Create a username'
-                    onChangeText={onChangeEmail}
-                    placeHolder='srpatos@email.com'
+                    onChangeText={onChangeUserName}
+                    placeHolder='Example: srpatos'
                     text={textUserName}
                     errorText='create a username with 4 or more characters'
                 />
@@ -62,9 +62,10 @@ const Register = ({ navigation }) => {
                 <Input
                     title='Create a Password'
                     onChangeText={onChangePassword}
-                    placeHolder='MasterPato@2000'
-                    text={textPassWord}
+                    placeHolder='Example: MasterPato@2000'
                     errorText='create a password with 8 or more characters'
+                    showSecureText='Show password'
+                    text={textPassWord}
                 />
 
                 <Button

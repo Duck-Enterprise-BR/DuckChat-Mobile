@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import Colors from "../Colors/Colors";
+import { Ionicons } from '@expo/vector-icons'
 
 const InputStyle = StyleSheet.create({
     input: {
@@ -36,6 +37,17 @@ const InputStyle = StyleSheet.create({
         width: '100%',
         height: '20%',
         alignItems: 'center',
+    },
+
+    showPassword: {
+        position: 'absolute',
+        alignSelf: 'flex-end',
+        marginTop: '2%',
+        marginEnd: '5%',
+    },
+
+    showPasswordText: {
+        color: Colors.violet2
     }
 })
 
