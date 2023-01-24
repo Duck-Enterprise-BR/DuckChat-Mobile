@@ -4,8 +4,8 @@ import Colors from "../Colors/Colors";
 const InputStyle = StyleSheet.create({
     input: {
         height: 50,
-        width: 300,
-        margin: 10,
+        width: '95%',
+        //margin: 10,
         borderWidth: 1,
         borderColor: Colors.violet,
         borderRadius: 5,
@@ -19,7 +19,8 @@ const InputStyle = StyleSheet.create({
         fontSize: 13,
         color: Colors.violet2,
         marginHorizontal: 10,
-        marginTop: 10
+        marginTop: 10,
+        marginBottom: 5,
     },
 
     error: {
@@ -29,7 +30,12 @@ const InputStyle = StyleSheet.create({
         fontSize: 9,
         color: Colors.redError,
         marginHorizontal: 10,
-        marginBottom: 10
+    }, 
+    
+    base: {
+        width: '100%',
+        height: '20%',
+        alignItems: 'center',
     }
 })
 

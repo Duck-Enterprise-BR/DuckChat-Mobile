@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextInput, Text, View } from 'react-native';
+import { TextInput, Text, View, ScrollView } from 'react-native';
 import Button from '../components/Button';
 import RegisterStyle from '../style/RegisterStyle';
 import { StatusBar } from 'expo-status-bar';
@@ -16,22 +16,16 @@ const Register = ({ navigation }) => {
 
     const [isValidEmail, onChangeStateEmail] = React.useState(true);
 
-    function Register() {
-        if(validator.isEmail(textEmail)) {
-            onChangeStateEmail(true);
-            console.log('valid')
-        } else{
-            console.log('Invalid Email');
-            onChangeStateEmail(false);
-        }
-    }
-
     function Login() {
         console.log('Next screen')
         navigation.reset({
             index: 0,
-            routes: [{name: "Login"}]
+            routes: [{ name: "Login" }]
         })
+    }
+
+    function Register() {
+        onChangeStateEmail(validator.isEmail(textEmail));
     }
 
     return (
@@ -45,32 +39,32 @@ const Register = ({ navigation }) => {
             <View style={RegisterStyle.register}>
                 <Input
                     title='Your name'
-                    onChangeText={onChangeName}
-                    placeHolder='Example: Pato'
+                    onChangeText={onChangeEmail}
+                    placeHolder='srpatos@email.com'
                     text={textName}
                 />
-
                 <Input
                     title='Create a username'
-                    onChangeText={onChangeUserName}
-                    placeHolder='Example: SrPatoS'
+                    onChangeText={onChangeEmail}
+                    placeHolder='srpatos@email.com'
                     text={textUserName}
+                    errorText='create a username with 4 or more characters'
                 />
-
                 <Input
                     title='Your Email'
                     onChangeText={onChangeEmail}
-                    placeHolder='Example: srpatos@email.com'
+                    placeHolder='srpatos@email.com'
                     text={textEmail}
+                    errorText='Invalid Email'
                     validInput={isValidEmail}
-                    errorText='Invalid email'
                 />
 
                 <Input
-                    title='Create a password'
+                    title='Create a Password'
                     onChangeText={onChangePassword}
-                    placeHolder='Example: MasterPato@2000'
+                    placeHolder='MasterPato@2000'
                     text={textPassWord}
+                    errorText='create a password with 8 or more characters'
                 />
 
                 <Button
@@ -79,7 +73,7 @@ const Register = ({ navigation }) => {
                 />
 
                 <TextButton
-                    title="Do you have an account? log in"
+                    title="Do you have an account? login here"
                     onPress={Login}
                 />
             </View>

@@ -19,12 +19,7 @@ const LoginScreen = ({ navigation }) => {
     var isValidPassword = true;
 
     function Login() {
-        if(validator.isEmail(textEmail)) {
-            onChangeStateEmail(true);
-        } else{
-            console.log('Invalid Email');
-            onChangeStateEmail(false);
-        }
+        onChangeStateEmail(validator.isEmail(textEmail));
     }
 
     function Register() {

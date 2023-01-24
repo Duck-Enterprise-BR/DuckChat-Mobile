@@ -10,8 +10,7 @@ const Input = ({placeHolder, validInput, errorText, title, onChangeText, text}) 
     }
 
     return(
-        
-        <View>
+        <View style={InputStyle.base}>
             <Text style={InputStyle.title}>{title}</Text>
             <TextInput
                 style={InputStyle.input}
