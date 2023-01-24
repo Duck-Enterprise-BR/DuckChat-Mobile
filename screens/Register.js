@@ -15,6 +15,10 @@ const Register = ({ navigation }) => {
     const [textUserName, onChangeUserName] = React.useState('');
 
     const [isValidEmail, onChangeStateEmail] = React.useState(true);  
+    const [isValidPassword, onChangeValidPassword] = React.useState(true);
+    const [isValidUsername, onChangeValidUsername] = React.useState(true);
+
+    const [isHidePasswordText, onChangeHidePasswordText] = React.useState(true);
 
     function Login() {
         console.log('Next screen')
@@ -26,6 +30,12 @@ const Register = ({ navigation }) => {
 
     function Register() {
         onChangeStateEmail(validator.isEmail(textEmail));
+        onChangeValidPassword(textPassWord.length >= 8);
+        onChangeValidUsername(textUserName.length >= 4);
+    }
+
+    function ShowPassword() {
+        onChangeHidePasswordText(!isHidePasswordText)
     }
 
     return (
@@ -49,6 +59,7 @@ const Register = ({ navigation }) => {
                     placeHolder='Example: srpatos'
                     text={textUserName}
                     errorText='create a username with 4 or more characters'
+                    validInput={isValidUsername}
                 />
                 <Input
                     title='Your Email'
@@ -66,6 +77,9 @@ const Register = ({ navigation }) => {
                     errorText='create a password with 8 or more characters'
                     showSecureText='Show password'
                     text={textPassWord}
+                    isHidePassword={isHidePasswordText}
+                    onChangeHideText={ShowPassword}
+                    validInput={isValidPassword}
                 />
 
                 <Button

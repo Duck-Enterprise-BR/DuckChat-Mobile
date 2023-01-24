@@ -2,9 +2,8 @@ import React from "react";
 import { View, TextInput, Text, TouchableOpacity } from "react-native";
 import InputStyle from "../style/InputStyle";
 
-const Input = ({ placeHolder, validInput, errorText, title, onChangeText, text, showSecureText }) => {
+const Input = ({ placeHolder, validInput, errorText, title, onChangeText, text, showSecureText, isHidePassword, onChangeHideText }) => {
     var error;
-    const [isHidePassword, onChangeHidePassword] = React.useState(true);
     
     if (!validInput) {
         error = errorText;
@@ -15,7 +14,7 @@ const Input = ({ placeHolder, validInput, errorText, title, onChangeText, text, 
             <Text style={InputStyle.title}>{title}</Text>
             <TouchableOpacity
                 style={InputStyle.showPassword}
-                //onPress={onChangeHidePassword}
+                onPress={onChangeHideText}
             >
                 <Text style={InputStyle.showPasswordText}>{showSecureText}</Text>
             </TouchableOpacity>
@@ -24,7 +23,7 @@ const Input = ({ placeHolder, validInput, errorText, title, onChangeText, text, 
                 placeholder={placeHolder}
                 onChangeText={onChangeText}
                 value={text}
-                //secureTextEntry={isHidePassword}
+                secureTextEntry={isHidePassword}
             />
 
             <Text style={InputStyle.error}>{error}</Text>
