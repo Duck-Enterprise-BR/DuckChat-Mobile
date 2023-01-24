@@ -14,14 +14,13 @@ const Register = ({ navigation }) => {
     const [textName, onChangeName] = React.useState('');
     const [textUserName, onChangeUserName] = React.useState('');
 
-    const [isValidEmail, onChangeStateEmail] = React.useState(true);  
+    const [isValidEmail, onChangeStateEmail] = React.useState(true);
     const [isValidPassword, onChangeValidPassword] = React.useState(true);
     const [isValidUsername, onChangeValidUsername] = React.useState(true);
 
     const [isHidePasswordText, onChangeHidePasswordText] = React.useState(true);
 
     function Login() {
-        console.log('Next screen')
         navigation.reset({
             index: 0,
             routes: [{ name: "Login" }]
@@ -82,6 +81,9 @@ const Register = ({ navigation }) => {
                     validInput={isValidPassword}
                 />
 
+            </View>
+
+            <View style={RegisterStyle.registerButton}>
                 <Button
                     title='Register'
                     onPress={Register}

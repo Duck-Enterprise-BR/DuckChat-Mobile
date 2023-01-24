@@ -10,14 +10,12 @@ const HeaderStyle = StyleSheet.create ({
         alignContent: 'flex-start',
         alignItems: 'center',
         flexDirection: 'row',
-        position: 'relative'
     },
 
     title: {
         fontSize: 18,
         color: Colors.white,
         fontWeight: "bold",
-        //alignSelf: 'baseline',
         textTransform: "uppercase",
         padding: 15,
         paddingTop: 50

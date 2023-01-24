@@ -11,10 +11,10 @@ import Input from '../components/Input';
 const LoginScreen = ({ navigation }) => {
     //const validator = require('validator');
     //const isEmail = validator.isEmail(textEmail); 
-    
+
     const [textEmail, onChangeEmail] = React.useState('');
     const [textPassWord, onChangePassword] = React.useState('');
-    
+
     const [isValidEmail, onChangeStateEmail] = React.useState(true);
     var isValidPassword = true;
 
@@ -31,7 +31,7 @@ const LoginScreen = ({ navigation }) => {
 
     return (
         <View style={LoginStyle.base}>
-            <StatusBar style='auto'/>
+            <StatusBar style='auto' />
 
             <Header
                 title='Login'
@@ -55,7 +55,8 @@ const LoginScreen = ({ navigation }) => {
                     errorText='Invalid Password'
                     validInput={isValidPassword}
                 />
-
+            </View>
+            <View style={LoginStyle.loginButton}>
                 <Button
                     title='Login'
                     onPress={Login}

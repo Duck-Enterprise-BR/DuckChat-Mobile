@@ -9,18 +9,22 @@ const LoginStyle = StyleSheet.create({
   },
 
   login: {
-    flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: Colors.white,
-    alignContent: 'center',
   },
 
   base: {
-    backgroundColor: Colors.violet,
+    backgroundColor: Colors.white,
     flex: 1,
-    alignContent: 'center',
-    //alignItems: 'center'
+  },
+
+  loginButton:{
+    backgroundColor: Colors.white,
+    flex: 1,
+    width: '90%',
+    alignSelf: 'center',
+    flexDirection: 'column',
+    marginTop: '100%'
   }
 });
 

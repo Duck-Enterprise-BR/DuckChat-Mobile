@@ -9,18 +9,22 @@ const RegisterStyle = StyleSheet.create({
   },
 
   register: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: Colors.white,
-    alignContent: 'center',
+    alignItems: 'center',
   },
 
   base: {
-    backgroundColor: Colors.violet,
+    backgroundColor: Colors.white,
     flex: 1,
-    alignContent: 'center',
-    //alignItems: 'center'
+  },
+
+  registerButton:{
+    backgroundColor: Colors.white,
+    flex: 1,
+    width: '90%',
+    alignSelf: 'center',
+    flexDirection: 'column',
+    marginTop: '52%'
   }
 });
 

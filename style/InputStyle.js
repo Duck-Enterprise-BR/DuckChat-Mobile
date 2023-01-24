@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons'
 const InputStyle = StyleSheet.create({
     input: {
         height: 50,
-        width: '95%',
+        width: '90%',
         //margin: 10,
         borderWidth: 1,
         borderColor: Colors.violet,
@@ -19,7 +19,7 @@ const InputStyle = StyleSheet.create({
         textTransform: 'uppercase',
         fontSize: 13,
         color: Colors.violet2,
-        marginHorizontal: 10,
+        marginHorizontal: 20,
         marginTop: 10,
         marginBottom: 5,
     },
@@ -30,13 +30,14 @@ const InputStyle = StyleSheet.create({
         textTransform: 'uppercase',
         fontSize: 9,
         color: Colors.redError,
-        marginHorizontal: 10,
+        marginHorizontal: 20,
     }, 
     
     base: {
         width: '100%',
-        height: '20%',
+        height: 100,
         alignItems: 'center',
+        flexDirection: 'column',
     },
 
     showPassword: {
