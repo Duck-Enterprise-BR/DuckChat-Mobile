@@ -1,6 +1,7 @@
 import React from "react";
 import { View, TextInput, Text, TouchableOpacity } from "react-native";
 import InputStyle from "../style/InputStyle";
+import Colors from "../Colors/Colors";
 
 const Input = ({ placeHolder, validInput, errorText, title, onChangeText, text, showSecureText, isHidePassword, onChangeHideText }) => {
     var error;
@@ -21,6 +22,7 @@ const Input = ({ placeHolder, validInput, errorText, title, onChangeText, text, 
             <TextInput
                 style={InputStyle.input}
                 placeholder={placeHolder}
+                placeholderTextColor={Colors.violet4}
                 onChangeText={onChangeText}
                 value={text}
                 secureTextEntry={isHidePassword}

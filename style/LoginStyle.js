@@ -10,16 +10,16 @@ const LoginStyle = StyleSheet.create({
 
   login: {
     alignItems: 'center',
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.background,
   },
 
   base: {
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.background,
     flex: 1,
   },
 
   loginButton:{
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.background,
     flex: 1,
     width: '90%',
     alignSelf: 'center',

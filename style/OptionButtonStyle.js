@@ -20,8 +20,14 @@ const OptionButtonStyle = StyleSheet.create({
     },
 
     icon: {
-        color: Colors.white,
-        marginVertical: 5
+        color: Colors.violet2,
+        marginVertical: 10
+    },
+
+    borderEnd: {
+        backgroundColor: Colors.violet3,
+        height: '2%',
+        width: '100%'
     }
 })
 

@@ -3,9 +3,12 @@ const Colors = {
     pink: '#cc527a',
     white: '#fff',
     black: '#000',
-    violet: '#4c51bf',
+    violet: '#202330',
     violet2: '#4c598a',
-    redError: '#C91E1E'
+    violet3: '#616b99',
+    violet4: '#373f66',
+    redError: '#C91E1E',
+    background: '#191b24'
 }
 
 export default Colors;

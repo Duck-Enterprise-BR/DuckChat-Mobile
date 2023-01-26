@@ -13,10 +13,10 @@ const HeaderStyle = StyleSheet.create ({
     },
 
     title: {
-        fontSize: 18,
-        color: Colors.white,
+        fontSize: 20,
+        color: Colors.violet3,
         fontWeight: "bold",
-        textTransform: "uppercase",
+        //textTransform: 'capitalize',
         padding: 15,
         paddingTop: 50
     }

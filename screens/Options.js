@@ -10,10 +10,11 @@ const Options = () =>{
 
     return(
         <View style={OptionsStyle.base}>
-            <OptionButton iconName={'chat'}/>  
-            <OptionButton iconName={'user'}/> 
-            <OptionButton iconName={'group'}/> 
-            <OptionButton iconName={'notification'}/>           
+            <OptionButton iconName={'chatbubble-ellipses-outline'}/>  
+            <OptionButton iconName={'chatbubbles-outline'}/> 
+            <OptionButton iconName={'person-outline'}/> 
+            <OptionButton iconName={'notifications-outline'}/> 
+            <OptionButton iconName={'menu-outline'}/>          
         </View>
     )
 }

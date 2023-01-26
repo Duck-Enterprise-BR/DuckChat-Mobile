@@ -9,17 +9,17 @@ const RegisterStyle = StyleSheet.create({
   },
 
   register: {
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.background,
     alignItems: 'center',
   },
 
   base: {
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.background,
     flex: 1,
   },
 
   registerButton:{
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.background,
     flex: 1,
     width: '90%',
     alignSelf: 'center',

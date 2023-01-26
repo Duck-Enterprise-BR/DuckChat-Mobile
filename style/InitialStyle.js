@@ -4,7 +4,7 @@ import Colors from "../Colors/Colors";
 
 const InitialStyle = StyleSheet.create({
     base: {
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.background,
         flex: 1,
         alignContent: 'center',
         alignItems: 'center'
@@ -14,9 +14,10 @@ const InitialStyle = StyleSheet.create({
         flex: 1,
         flexDirection: 'column-reverse',
         marginBottom: 100,
+        width: '90%',
         //alignItems: 'center',
         //alignContent: 'center',
-        backgroundColor: Colors.white
+        backgroundColor: Colors.background
     }
 })
 

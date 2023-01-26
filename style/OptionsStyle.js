@@ -7,7 +7,7 @@ const OptionsStyle = StyleSheet.create({
         width: '100%',
         height: '7%',
         //alignItems: 'baseline',
-        flexDirection: 'row'
+        flexDirection: 'row',
     }
 })
 
