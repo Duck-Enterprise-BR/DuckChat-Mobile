@@ -7,6 +7,7 @@ import Header from '../components/Header';
 import TextButton from '../components/TextButton';
 import Input from '../components/Input';
 import validator from 'validator';
+import axios from 'axios';
 
 const Register = ({ navigation }) => {
     const [textEmail, onChangeEmail] = React.useState('');
@@ -27,10 +28,23 @@ const Register = ({ navigation }) => {
         })
     }
 
-    function Register() {
+    async function Register() {
         onChangeStateEmail(validator.isEmail(textEmail));
         onChangeValidPassword(textPassWord.length >= 8);
         onChangeValidUsername(textUserName.length >= 4);
+
+        let url = "http://192.168.1.1:3000/user";
+        let data = {
+            "email": "charlesdobarulho@hotmail.com",
+            "password": "12346578",
+            "username": "charles",
+            "name": "aaaaaaaaaa" 
+        }
+
+        axios.post(url, data)
+            .then(function (response) { console.log("Request sucess: "+response) })
+            .catch(function (error) { console.log(error) })
+            .finally(()=>{console.log("F")})
     }
 
     function ShowPassword() {
