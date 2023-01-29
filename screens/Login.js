@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { ScrollView, View, Text } from 'react-native';
 import Button from '../components/Button';
 import LoginStyle from '../style/LoginStyle';
 import { StatusBar } from 'expo-status-bar';
@@ -7,16 +7,17 @@ import Header from '../components/Header';
 import TextButton from '../components/TextButton';
 import validator from 'validator';
 import Input from '../components/Input';
+import KeyboardAvoidingView from 'react-native/Libraries/Components/Keyboard/KeyboardAvoidingView';
 
 const LoginScreen = ({ navigation }) => {
-    //const validator = require('validator');
-    //const isEmail = validator.isEmail(textEmail); 
-
     const [textEmail, onChangeEmail] = React.useState('');
     const [textPassWord, onChangePassword] = React.useState('');
-
     const [isValidEmail, onChangeStateEmail] = React.useState(true);
-    var isValidPassword = true;
+    const [isHidePasswordText, onChangeHidePasswordText] = React.useState(true);
+
+    function ShowPassword() {
+        onChangeHidePasswordText(!isHidePasswordText)
+    }
 
     function Login() {
         onChangeStateEmail(validator.isEmail(textEmail));
@@ -25,19 +26,17 @@ const LoginScreen = ({ navigation }) => {
     function Register() {
         navigation.reset({
             index: 0,
-            routes: [{ name: 'Register' }]
+            routes: [{ name: 'UserInformation' }]
         })
     }
 
     return (
         <View style={LoginStyle.base}>
             <StatusBar style='auto' />
-
-            <Header
-                title='Login'
-            />
-
             <View style={LoginStyle.login}>
+                <Text style={LoginStyle.screenName}>
+                    Login
+                </Text>
                 <Input
                     title='Your Email'
                     onChangeText={onChangeEmail}
@@ -50,23 +49,26 @@ const LoginScreen = ({ navigation }) => {
                 <Input
                     title='Your Password'
                     onChangeText={onChangePassword}
-                    placeHolder='MasterPato@2000'
+                    placeHolder='Example: MasterPato@2000'
                     text={textPassWord}
-                    errorText='Invalid Password'
-                    validInput={isValidPassword}
+                    onChangeHideText={ShowPassword}
+                    isHidePassword={isHidePasswordText}
+                    showSecureText={"Show password"}
                 />
+                <View style={LoginStyle.loginButton}>
+                    <TextButton
+                        title="Don't have an account? create one here"
+                        onPress={Register}
+                    />
+                    <Button
+                        title='Login'
+                        onPress={Login}
+                    />
+                </View>
             </View>
-            <View style={LoginStyle.loginButton}>
-                <Button
-                    title='Login'
-                    onPress={Login}
-                />
-
-                <TextButton
-                    title="Don't have an account? create one here"
-                    onPress={Register}
-                />
-            </View>
+            <Header
+                title=''
+            />
         </View>
     );
 }

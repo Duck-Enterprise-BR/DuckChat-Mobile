@@ -22,7 +22,7 @@ const Input = ({ placeHolder, validInput, errorText, title, onChangeText, text, 
             <TextInput
                 style={InputStyle.input}
                 placeholder={placeHolder}
-                placeholderTextColor={Colors.violet4}
+                placeholderTextColor={Colors.gray5}
                 onChangeText={onChangeText}
                 value={text}
                 secureTextEntry={isHidePassword}

@@ -1,30 +1,47 @@
 import React from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 import Colors from '../Colors/Colors';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 const RegisterStyle = StyleSheet.create({
   button: {
-    borderWidth: 1,
+    borderWidth: 1, 
     borderColor: Colors.violet,
   },
 
-  register: {
-    backgroundColor: Colors.background,
+  login: {
     alignItems: 'center',
+    backgroundColor: Colors.white,
+    width: '90%',
+    height: '100%',
+    //arginTop: '20%',
+    justifyContent: 'center',
   },
 
   base: {
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.white,
     flex: 1,
+    alignItems: 'center'
   },
 
-  registerButton:{
-    backgroundColor: Colors.background,
-    flex: 1,
-    width: '90%',
-    alignSelf: 'center',
-    flexDirection: 'column',
-    marginTop: '52%'
+  registerButton: {
+    //marginBottom: '20%',
+    //marginTop: '10%',
+    width: '100%',
+    //backgroundColor: Colors.white,
+    flexDirection: 'column-reverse',
+    //position: 'absolute',
+    //bottom: 0,
+    //alignItems: 'center',
+    //alignSelf: 'center',
+    paddingVertical: '5%',
+    backgroundColor: Colors.white
+  },
+
+  screenName: {
+    color: Colors.orange2,
+    fontWeight: 'bold',
+    fontSize: RFValue(35)
   }
 });
 

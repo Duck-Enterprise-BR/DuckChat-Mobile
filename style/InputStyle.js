@@ -1,16 +1,19 @@
-import { StyleSheet } from "react-native";
+import { ImageBackground, StyleSheet } from "react-native";
 import Colors from "../Colors/Colors";
 import { Ionicons } from '@expo/vector-icons'
 
 const InputStyle = StyleSheet.create({
     input: {
         height: 50,
-        width: '90%',
+        width: '100%',
+        height: "60%",
         //margin: 10,
-        borderWidth: 1,
-        borderColor: Colors.violet,
+        //borderWidth: 1,
+        //borderColor: Colors.violet,
         borderRadius: 5,
         padding: 10,
+        color: Colors.gray6,
+        backgroundColor: Colors.gray3
     },
 
     title: {
@@ -18,8 +21,8 @@ const InputStyle = StyleSheet.create({
         alignSelf: 'baseline',
         textTransform: 'uppercase',
         fontSize: 13,
-        color: Colors.violet2,
-        marginHorizontal: 20,
+        color: Colors.gray4,
+        //marginHorizontal: 10,
         marginTop: 10,
         marginBottom: 5,
     },
@@ -30,14 +33,15 @@ const InputStyle = StyleSheet.create({
         textTransform: 'uppercase',
         fontSize: 9,
         color: Colors.redError,
-        marginHorizontal: 20,
+        //marginHorizontal: 20,
     }, 
     
     base: {
         width: '100%',
-        height: 100,
+        height: 80,
         alignItems: 'center',
         flexDirection: 'column',
+        marginTop: '2.5%'
     },
 
     showPassword: {
@@ -48,7 +52,7 @@ const InputStyle = StyleSheet.create({
     },
 
     showPasswordText: {
-        color: Colors.violet2
+        color: Colors.gray4
     }
 })
 

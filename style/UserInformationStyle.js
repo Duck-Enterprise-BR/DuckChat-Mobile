@@ -3,7 +3,12 @@ import { StyleSheet, TextInput } from 'react-native';
 import Colors from '../Colors/Colors';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
-const LoginStyle = StyleSheet.create({
+const UserInformationStyle = StyleSheet.create({
+  button: {
+    borderWidth: 1,
+    borderColor: Colors.violet,
+  },
+
   login: {
     alignItems: 'center',
     backgroundColor: Colors.white,
@@ -16,7 +21,7 @@ const LoginStyle = StyleSheet.create({
   base: {
     backgroundColor: Colors.white,
     flex: 1,
-    alignItems: 'center',
+    alignItems: 'center'
   },
 
   loginButton: {
@@ -40,4 +45,4 @@ const LoginStyle = StyleSheet.create({
   }
 });
 
-export default LoginStyle;
+export default UserInformationStyle;

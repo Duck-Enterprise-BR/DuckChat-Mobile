@@ -16,16 +16,18 @@ const Initial = ({navigation}) => {
     return (
         <View style={InitialStyle.base}>
             <StatusBar style='auto' />
-            <Header
-                title='Welcome to DuckChat'
-            />
-
+            <View style={InitialStyle.login}>
+            <Text style={InitialStyle.screenName}>{'DuckChat'}</Text>
+            </View>
             <View style={InitialStyle.next}>
                 <Button
                     title='Next'
                     onPress={Login}
                 />
             </View>
+            <Header
+                title=''
+            />
 
         </View>
     )

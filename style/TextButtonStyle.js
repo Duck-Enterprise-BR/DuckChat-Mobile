@@ -17,7 +17,7 @@ const TextButtonStyle = StyleSheet.create({
 
     ButtonText: {
         fontSize: 10,
-        color: Colors.violet2,
+        color: Colors.orange3,
         fontWeight: 'bold',
         alignSelf: 'center',
         textTransform: 'uppercase'
