@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View, Text } from 'react-native';
+import { View, Text } from 'react-native';
 import Button from '../components/Button';
 import LoginStyle from '../style/LoginStyle';
 import { StatusBar } from 'expo-status-bar';
@@ -7,7 +7,10 @@ import Header from '../components/Header';
 import TextButton from '../components/TextButton';
 import validator from 'validator';
 import Input from '../components/Input';
-import KeyboardAvoidingView from 'react-native/Libraries/Components/Keyboard/KeyboardAvoidingView';
+import axios from 'axios';
+import Api from '../api/Api';
+import ErrorText from '../components/ErrorText';
+import Toast from 'react-native-toast-message';
 
 const LoginScreen = ({ navigation }) => {
     const [textEmail, onChangeEmail] = React.useState('');
@@ -15,12 +18,51 @@ const LoginScreen = ({ navigation }) => {
     const [isValidEmail, onChangeStateEmail] = React.useState(true);
     const [isHidePasswordText, onChangeHidePasswordText] = React.useState(true);
 
+    const [textError, onChangeTextError] = React.useState('');
+
     function ShowPassword() {
         onChangeHidePasswordText(!isHidePasswordText)
     }
 
-    function Login() {
+    async function Login() {
         onChangeStateEmail(validator.isEmail(textEmail));
+
+        const data = {
+            "email": textEmail,
+            "password": textPassWord
+        }
+
+        //console.log(data)
+
+        function erro(error) {
+
+            console.log("Error: ", error.response.data)
+
+            onChangeTextError("Erro code: " + error.response.data.statusCode);
+
+        }
+
+        function pass(response) {
+            console.log(response.data)
+            onChangeTextError('');
+            var message = ('Successfully Logged in')
+            Toast.show({
+                type: 'success',
+                text1: 'Success',
+                text2: message
+            })
+            //navigatorScreen.navigate('Login')
+        }
+
+        const config = axios.create = {
+            method: 'post',
+            url: '/auth/login',
+            data: data
+        }
+
+        await Api(config)
+            .then((response) => { pass(response) })
+            .catch((error) => { erro(error) })
     }
 
     function Register() {
@@ -65,6 +107,9 @@ const LoginScreen = ({ navigation }) => {
                         onPress={Login}
                     />
                 </View>
+                <ErrorText
+                    errorText={textError}
+                />
             </View>
             <Header
                 title=''

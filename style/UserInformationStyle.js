@@ -34,7 +34,7 @@ const UserInformationStyle = StyleSheet.create({
     //bottom: 0,
     //alignItems: 'center',
     //alignSelf: 'center',
-    paddingVertical: '5%',
+    marginTop: '5%',
     backgroundColor: Colors.white
   },
 

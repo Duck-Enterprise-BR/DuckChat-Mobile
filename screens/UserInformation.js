@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text } from 'react-native';
 import Button from '../components/Button';
 import { StatusBar } from 'expo-status-bar';
 import Header from '../components/Header';
 import validator from 'validator';
 import Input from '../components/Input';
-import KeyboardAvoidingView from 'react-native/Libraries/Components/Keyboard/KeyboardAvoidingView';
 import UserInformationStyle from '../style/UserInformationStyle';
 import { useNavigation } from '@react-navigation/native';
 import TextButton from '../components/TextButton';
@@ -15,18 +14,28 @@ const UserInformation = ({ navigation }) => {
     const [textName, onChangeName] = React.useState('');
 
     const [isValidEmail, onChangeStateEmail] = React.useState(false);
-    const [isValidName, onChangeStateName] = React.useState(false)
+    const [isValidName, onChangeStateName] = React.useState(true)
+
+    const [isValidInputEmail, onChangeIsValidInputEmail] = React.useState(true);
+    const [isValidInputName, onChangeIsValidInputName] = React.useState(true);
 
     const navigatorScreen = useNavigation();
-
-    function NextScreen() {
+    
+    useEffect(() => {
         onChangeStateEmail(validator.isEmail(textEmail))
         onChangeStateName(textName.length > 0)
+    })
+
+    function NextScreen() {
+        
+        onChangeIsValidInputEmail(isValidEmail);
+        onChangeIsValidInputName(isValidName);
+
         if (isValidEmail && isValidName) {
             navigatorScreen.navigate('Register', { textEmail, textName })
         }
     }
-    
+
     function Login() {
         navigatorScreen.navigate('Login')
     }
@@ -42,7 +51,7 @@ const UserInformation = ({ navigation }) => {
                     placeHolder='Patos'
                     text={textName}
                     errorText='Invalid Name'
-                    validInput={isValidName}
+                    validInput={isValidInputName}
                 />
 
                 <Input
@@ -51,10 +60,10 @@ const UserInformation = ({ navigation }) => {
                     placeHolder='Example: srpatos@email.com'
                     text={textEmail}
                     errorText='Invalid Email'
-                    validInput={isValidEmail}
+                    validInput={isValidInputEmail}
                 />
                 <View style={UserInformationStyle.loginButton}>
-                <TextButton
+                    <TextButton
                         title="You already have an account? login here"
                         onPress={Login}
                     />

@@ -21,7 +21,7 @@ const RegisterStyle = StyleSheet.create({
   base: {
     backgroundColor: Colors.white,
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
   },
 
   registerButton: {
@@ -34,14 +34,23 @@ const RegisterStyle = StyleSheet.create({
     //bottom: 0,
     //alignItems: 'center',
     //alignSelf: 'center',
-    paddingVertical: '5%',
-    backgroundColor: Colors.white
+    //paddingVertical: '5%',
+    backgroundColor: Colors.white,
+    marginTop: '5%'
   },
 
   screenName: {
     color: Colors.orange2,
     fontWeight: 'bold',
     fontSize: RFValue(35)
+  },
+
+  back: {
+    alignItems: 'flex-start',
+    width: '100%',
+    position: 'absolute',
+    marginTop: '20%',
+    backgroundColor: Colors.white
   }
 });
 
