@@ -46,11 +46,8 @@ const RegisterStyle = StyleSheet.create({
   },
 
   back: {
-    alignItems: 'flex-start',
-    width: '100%',
-    position: 'absolute',
-    marginTop: '20%',
-    backgroundColor: Colors.white
+    height: '4%',
+    alignSelf: 'flex-start'
   }
 });
 

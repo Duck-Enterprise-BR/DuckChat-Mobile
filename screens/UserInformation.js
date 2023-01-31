@@ -32,8 +32,10 @@ const UserInformation = ({ navigation }) => {
         onChangeIsValidInputName(isValidName);
 
         if (isValidEmail && isValidName) {
-            navigatorScreen.navigate('Register', { textEmail, textName })
+            
         }
+
+        navigatorScreen.navigate('Register', { textEmail, textName })
     }
 
     function Login() {

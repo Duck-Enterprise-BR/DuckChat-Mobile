@@ -87,14 +87,14 @@ const Register = ({ route }) => {
     return (
         <View style={RegisterStyle.base}>
             <StatusBar style='auto' />
-            <View style={RegisterStyle.back}>
-                <Button />
-            </View>
-
             <View style={RegisterStyle.login}>
-
+                <View style={RegisterStyle.back}>
+                    <OptionButton
+                        iconName={"arrow-back-outline"}
+                        onPress={Back}
+                    />
+                </View>
                 <Text style={RegisterStyle.screenName}>{'Register'}</Text>
-
                 <Input
                     title='Create a Username'
                     onChangeText={onChangeUsername}
@@ -127,12 +127,7 @@ const Register = ({ route }) => {
                 </View>
                 <ErrorText errorText={textError} />
             </View>
-            <View style={RegisterStyle.back}>
-                <OptionButton
-                iconName={"arrow-back-outline"}
-                onPress={Back}
-                />
-            </View>
+
             <Header title='' />
 
         </View>

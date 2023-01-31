@@ -23,7 +23,7 @@ const OptionButtonStyle = StyleSheet.create({
 
     icon: {
         color: Colors.orange,
-        marginVertical: 10
+        //marginVertical: 10
     },
 
     borderEnd: {
