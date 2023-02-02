@@ -11,6 +11,9 @@ import axios from 'axios';
 import Api from '../api/Api';
 import ErrorText from '../components/ErrorText';
 import Toast from 'react-native-toast-message';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import DataKeys from '../keys/DataKeys';
 
 const LoginScreen = ({ navigation }) => {
     const [textEmail, onChangeEmail] = React.useState('');
@@ -24,9 +27,17 @@ const LoginScreen = ({ navigation }) => {
         onChangeHidePasswordText(!isHidePasswordText)
     }
 
+    async function StoreData(key, data){
+        try {
+            await AsyncStorage.setItem(key, data);
+        } catch (error) {
+            console.log("Store Data error: " + error);
+        }
+    }
+
     async function Login() {
         onChangeStateEmail(validator.isEmail(textEmail));
-
+    
         const data = {
             "email": textEmail,
             "password": textPassWord
@@ -35,11 +46,9 @@ const LoginScreen = ({ navigation }) => {
         //console.log(data)
 
         function erro(error) {
-
             console.log("Error: ", error.response.data)
 
             onChangeTextError("Erro code: " + error.response.data.statusCode);
-
         }
 
         function pass(response) {
@@ -51,7 +60,9 @@ const LoginScreen = ({ navigation }) => {
                 text1: 'Success',
                 text2: message
             })
-            //navigatorScreen.navigate('Login')
+            
+            const user_data = JSON.stringify(response.data);
+            StoreData(DataKeys.USER_LOCAL_DATA, JSON.stringify(user_data));
         }
 
         const config = axios.create = {
@@ -91,7 +102,7 @@ const LoginScreen = ({ navigation }) => {
                 <Input
                     title='Your Password'
                     onChangeText={onChangePassword}
-                    placeHolder='Example: MasterPato@2000'
+                    placeHolder='MasterPato@2000'
                     text={textPassWord}
                     onChangeHideText={ShowPassword}
                     isHidePassword={isHidePasswordText}

@@ -11,18 +11,18 @@ import ToastConfig from './config/ToastConfig';
 
 const Stack = createStackNavigator();
 
-function App() {
+function App( navigation ) {
+
   return (
-      <NavigationContainer>
-        <AppNavigator />
-        <Toast
+    <NavigationContainer>
+      <AppNavigator />
+      <Toast
         config={ToastConfig}
         autoHide={true}
         visibilityTime={2000}
-        />
-      </NavigationContainer>
-
-  );
+      />
+    </NavigationContainer>
+  )
 }
 
 function AppNavigator() {
@@ -38,5 +38,6 @@ function AppNavigator() {
     </Stack.Navigator>
   );
 }
+
 
 export default App;
