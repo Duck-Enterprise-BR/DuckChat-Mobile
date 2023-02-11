@@ -2,7 +2,7 @@ import React from "react"
 import { StyleSheet } from "react-native"
 import Colors from "../Colors/Colors";
 
-const MainlStyle = StyleSheet.create({
+const MainStyle = StyleSheet.create({
     base: {
         flex: 1,
         alignContent: 'center',
@@ -12,7 +12,12 @@ const MainlStyle = StyleSheet.create({
 
     navigator: {
         
+    },
+
+    item: {
+        borderTopEndRadius: 10,
+        borderTopStartRadius: 10,
     }
 })
 
-export default MainlStyle;
+export default MainStyle;

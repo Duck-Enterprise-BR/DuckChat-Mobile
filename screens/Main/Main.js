@@ -1,16 +1,21 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 import Chat from './Chat';
 import Notifications from './Notifications';
 import Profile from './Profile';
+import Settings from './Settings';
+
 import Colors from '../../Colors/Colors';
+
+import MainStyle from '../../style/MainStyle';
 
 const Main = () => {
     return (
         <NavigationContainer>
-            <Tabs/>
+            <Tabs />
         </NavigationContainer>
     );
 }
@@ -19,10 +24,37 @@ const Tab = createBottomTabNavigator();
 
 function Tabs() {
     return (
-        <Tab.Navigator>
-            <Tab.Screen name="DuckChat" component={Chat}/>
-            <Tab.Screen name="Notifications" component={Notifications}/>
-            <Tab.Screen name="Profile" component={Profile}/>
+        <Tab.Navigator
+            screenOptions={{
+                headerTintColor: Colors.orange,
+                tabBarActiveTintColor: Colors.white,
+                tabBarInactiveTintColor: Colors.orange,
+                tabBarActiveBackgroundColor: Colors.orange,
+                tabBarInactiveBackgroundColor: Colors.white,
+                tabBarShowLabel: false,
+                tabBarItemStyle: MainStyle.item,
+            }}
+        >
+            <Tab.Screen name="Chat" component={Chat} options={{
+                tabBarIcon: ({ color, size }) => (
+                    <Ionicons name="md-chatbubble-ellipses-outline" color={color} size={size} />
+                ),
+            }} />
+            <Tab.Screen name="Notifications" component={Notifications} options={{
+                tabBarIcon: ({ color, size }) => (
+                    <Ionicons name="notifications-outline" size={size} color={color}/>
+                ),
+            }} />
+            <Tab.Screen name="Profile" component={Profile} options={{
+                tabBarIcon: ({ color, size }) => (
+                    <Ionicons name="person-outline" color={color} size={size} />
+                ),
+            }} />
+            <Tab.Screen name="Settings" component={Settings} options={{
+                tabBarIcon: ({ color, size }) => (
+                    <Ionicons name="settings-outline" color={color} size={size} />
+                ),
+            }} />
         </Tab.Navigator>
     );
 }
