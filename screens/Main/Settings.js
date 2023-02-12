@@ -1,5 +1,9 @@
-const Settings = () => {
+import { View, Text } from "react-native";
 
+const Settings = () => {
+    return(
+        <View></View>
+    )
 }
 
 export default Settings;

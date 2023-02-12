@@ -33,6 +33,7 @@ function Tabs() {
                 tabBarInactiveBackgroundColor: Colors.white,
                 tabBarShowLabel: false,
                 tabBarItemStyle: MainStyle.item,
+                headerStyle: MainStyle.header,
             }}
         >
             <Tab.Screen name="Chat" component={Chat} options={{

@@ -17,6 +17,10 @@ const MainStyle = StyleSheet.create({
     item: {
         borderTopEndRadius: 10,
         borderTopStartRadius: 10,
+    },
+
+    header: {
+        backgroundColor: Colors.gray3
     }
 })
 
