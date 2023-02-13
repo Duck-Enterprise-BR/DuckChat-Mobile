@@ -8,7 +8,7 @@ import Notifications from './Notifications';
 import Profile from './Profile';
 import Settings from './Settings';
 
-import Colors from '../../Colors/Colors';
+import Colors from '../../colors/Colors';
 
 import MainStyle from '../../style/MainStyle';
 

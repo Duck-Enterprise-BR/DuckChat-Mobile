@@ -1,5 +1,5 @@
 import { ImageBackground, StyleSheet } from "react-native";
-import Colors from "../Colors/Colors";
+import Colors from "../colors/Colors";
 import { Ionicons } from '@expo/vector-icons'
 
 const InputStyle = StyleSheet.create({

@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import OptionButtonStyle from "../style/OptionButtonStyle";
 import Ionicons from '@expo/vector-icons/Ionicons'
-import Colors from "../Colors/Colors";
 
 const OptionButton = ({onPress, iconName }) => {
     return (

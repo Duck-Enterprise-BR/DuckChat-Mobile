@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import Colors from "../../Colors/Colors";
+import Colors from "../../colors/Colors";
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 const ProfileImageSize = RFValue(100);
