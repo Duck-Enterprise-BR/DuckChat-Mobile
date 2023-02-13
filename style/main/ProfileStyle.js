@@ -1,5 +1,9 @@
 import { StyleSheet } from "react-native";
 import Colors from "../../Colors/Colors";
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+
+const ProfileImageSize = RFValue(100);
+const HeaderBorderRadius = RFValue(40);
 
 const ProfileStyle = StyleSheet.create({
     base: {
@@ -8,33 +12,43 @@ const ProfileStyle = StyleSheet.create({
         alignItems: 'center'
     },
 
-    profileImagem: {
-        height: 150,
-        width: 150,
-        borderRadius: 150 / 2
-    },
-
-    profileImageBase: {
+    header: {
         backgroundColor: Colors.white,
-        marginTop: '5%',
-        height: '25%',
+        height: RFValue(200),
         width: '100%',
-        alignItems: 'center',   
+        flexDirection: 'row',
+        borderBottomLeftRadius: HeaderBorderRadius,
+        borderBottomRightRadius: HeaderBorderRadius,
+        elevation: 10
     },
 
-    namebase: {
-        width: '100%',
-        alignItems: 'center',
-        backgroundColor: Colors.white
+    profileImagem: {
+        marginTop: '15%',
+        marginLeft: '7%',
+        height: ProfileImageSize,
+        width: ProfileImageSize,
+        borderRadius: RFValue(20),
+        borderWidth: 3,
+        borderColor: Colors.white,
     },
 
     name: {
-        color: Colors.gray6,
-        fontSize: 20
+        color: Colors.gray4,
+        fontSize: RFValue(20),
+        marginTop: '50%',
+        marginLeft: '5%',
+        fontWeight: 'bold'
+    },
+
+    username: {
+        color: Colors.gray5,
+        fontSize: RFValue(12),
+        marginTop: '0%',
+        marginLeft: '5%',
     },
 
     emailBase: {
-
+        
     }
 })
 

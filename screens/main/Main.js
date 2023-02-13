@@ -14,7 +14,7 @@ import MainStyle from '../../style/MainStyle';
 
 const Main = () => {
     return (
-        <NavigationContainer>
+        <NavigationContainer independent={true}>
             <Tabs />
         </NavigationContainer>
     );
@@ -46,7 +46,8 @@ function Tabs() {
                     <Ionicons name="notifications-outline" size={size} color={color}/>
                 ),
             }} />
-            <Tab.Screen name="Profile" component={Profile} options={{
+            <Tab.Screen name="Profile" component={Profile} options={{ 
+                headerShown: false,
                 tabBarIcon: ({ color, size }) => (
                     <Ionicons name="person-outline" color={color} size={size} />
                 ),

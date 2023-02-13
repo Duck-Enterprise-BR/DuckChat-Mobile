@@ -1,29 +1,40 @@
 import React from 'react'
-import { View, Text } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
-import Header from '../components/Header';
-import InitialStyle from '../style/InitialStyle';
-import Button from '../components/Button';
+import { View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import DataKeys from '../keys/DataKeys';
 import { useEffect } from 'react';
 
 const Initial = ({ navigation }) => {
-    function Login() {
-        navigation.reset({
-            index: 0,
-            routes: [{ name: "Login" }]
-        })
-    }
-
     async function CheckUser() {
+        const data = {
+            ApplicationAccessed: true
+        }
+
+        const log_data = JSON.stringify(data);
+        await AsyncStorage.setItem(DataKeys.USER_LOCAL_LOG, JSON.stringify(log_data));
+
         try {
-            const value = await AsyncStorage.getItem(DataKeys.USER_LOCAL_DATA);
-            if (value !== null) {
-                var user_data = JSON.parse(value);
-                var data = JSON.parse(user_data);
-                if (data.acessToken !== null) {
-                    console.log("Looggg");
+            const user_local_data = await AsyncStorage.getItem(DataKeys.USER_LOCAL_DATA);
+            const user_local_log = await AsyncStorage.getItem(DataKeys.USER_LOCAL_LOG);
+
+            var user_data = JSON.parse(user_local_data);
+            var user_log = JSON.parse(user_local_log);
+
+            var acessData = JSON.parse(user_data);
+            var logData = JSON.parse(user_log);
+            
+            if (acessData.acessToken) {
+                console.log("Initial log: " + data.acessToken)
+                navigation.reset({
+                    index: 0,
+                    routes: [{ name: "Main" }]
+                })
+            } else{
+                if(logData.ApplicationAccessed){
+                    navigation.reset({
+                        index: 0,
+                        routes: [{ name: "Login" }]
+                    })
                 }
             }
 
@@ -37,21 +48,8 @@ const Initial = ({ navigation }) => {
     }, []);
 
     return (
-        <View style={InitialStyle.base}>
-            <StatusBar style='auto' />
-            <View style={InitialStyle.login}>
-                <Text style={InitialStyle.screenName}>{'DuckChat'}</Text>
-            </View>
-            <View style={InitialStyle.next}>
-                <Button
-                    title='Next'
-                    onPress={Login}
-                />
-            </View>
-            <Header
-                title=''
-            />
-
+        <View>
+            
         </View>
     )
 }

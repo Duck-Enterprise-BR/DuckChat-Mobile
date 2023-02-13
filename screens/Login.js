@@ -63,6 +63,11 @@ const LoginScreen = ({ navigation }) => {
             
             const user_data = JSON.stringify(response.data);
             StoreData(DataKeys.USER_LOCAL_DATA, JSON.stringify(user_data));
+            
+            navigation.reset({
+                index: 0,
+                routes: [{ name: 'Main' }]
+            })
         }
 
         const config = axios.create = {
