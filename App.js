@@ -1,8 +1,8 @@
 import React from 'react';
-import Register from './screens/Register';
-import Login from './screens/Login';
-import Initial from './screens/Initial';
-import UserInformation from './screens/UserInformation';
+import Register from './screens/initial/Register';
+import Login from './screens/initial/Login';
+import Initial from './screens/initial/Initial';
+import UserInformation from './screens/initial/UserInformation';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Main from './screens/main/Main';

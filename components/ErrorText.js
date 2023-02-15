@@ -1,5 +1,5 @@
 import { View, Text } from "react-native";
-import ErrorTextStyle from "../style/ErrorTextStyle";
+import ErrorTextStyle from "../styles/components/ErrorTextStyle";
 
 const ErrorText = ({errorText}) => {
     return(

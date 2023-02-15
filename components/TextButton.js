@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, Text } from 'react-native';
-import TextButtonStyle from '../style/TextButtonStyle';
+import { TouchableOpacity, Text } from 'react-native';
+import TextButtonStyle from '../styles/components/TextButtonStyle';
 
 TouchableOpacity.defaultProps = { activeOpacity: 0.8 };
 

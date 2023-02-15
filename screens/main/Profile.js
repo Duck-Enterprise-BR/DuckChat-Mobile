@@ -1,5 +1,5 @@
 import { View, Text, Image } from "react-native";
-import ProfileStyle from "../../style/main/ProfileStyle";
+import ProfileStyle from "../../styles/main/ProfileStyle";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";

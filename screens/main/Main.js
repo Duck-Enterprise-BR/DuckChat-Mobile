@@ -10,7 +10,7 @@ import Settings from './Settings';
 
 import Colors from '../../colors/Colors';
 
-import MainStyle from '../../style/MainStyle';
+import MainStyle from '../../styles/main/MainStyle';
 
 const Main = () => {
     return (
