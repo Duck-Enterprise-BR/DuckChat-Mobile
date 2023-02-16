@@ -1,27 +1,25 @@
 import { StyleSheet } from "react-native";
 import Colors from "../../colors/Colors";
+import { RFValue } from "react-native-responsive-fontsize";
+
+const BorderRadius = RFValue(5);
+const FontSize = RFValue(18);
+const Height = RFValue(35);
 
 const ButtonStyle = StyleSheet.create({
     base: {
-        flex: 1,
-        justifyContent: 'center',
-        padding: 10
-    },
-
-    ButtonContainer: {
-        elevation: 8,
         backgroundColor: Colors.orange,
-        borderRadius: 5,
-        paddingVertical: 10,
-        paddingHorizontal: 12
+        borderRadius: BorderRadius,
+        height: Height,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
 
     ButtonText: {
-        fontSize: 18,
+        fontSize: FontSize,
         color: Colors.white,
         fontWeight: 'bold',
-        alignSelf: 'center',
-        textTransform: 'uppercase'
+        textTransform: 'uppercase',
     }
 });
 
