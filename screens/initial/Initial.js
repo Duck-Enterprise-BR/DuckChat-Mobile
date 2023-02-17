@@ -5,6 +5,11 @@ import DataKeys from '../../keys/DataKeys';
 import { useEffect } from 'react';
 
 const Initial = ({ navigation }) => {
+    //
+    useEffect(() => {
+        CheckUser();
+    }, []);
+
     async function CheckUser() {
         const data = {
             ApplicationAccessed: true
@@ -22,15 +27,15 @@ const Initial = ({ navigation }) => {
 
             var acessData = JSON.parse(user_data);
             var logData = JSON.parse(user_log);
-            
+
             if (acessData.acessToken) {
                 console.log("Initial log: " + data.acessToken)
                 navigation.reset({
                     index: 0,
                     routes: [{ name: "Main" }]
                 })
-            } else{
-                if(logData.ApplicationAccessed){
+            } else {
+                if (logData.ApplicationAccessed) {
                     navigation.reset({
                         index: 0,
                         routes: [{ name: "Login" }]
@@ -43,13 +48,11 @@ const Initial = ({ navigation }) => {
         }
     }
 
-    useEffect(() => {
-        CheckUser();
-    }, []);
+    
 
     return (
         <View>
-            
+
         </View>
     )
 }

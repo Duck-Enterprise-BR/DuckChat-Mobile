@@ -26,14 +26,15 @@ function Tabs() {
     return (
         <Tab.Navigator
             screenOptions={{
-                headerTintColor: Colors.orange,
+                headerTintColor: Colors.black,
                 tabBarActiveTintColor: Colors.white,
-                tabBarInactiveTintColor: Colors.orange,
-                tabBarActiveBackgroundColor: Colors.orange,
+                tabBarInactiveTintColor: Colors.black,
+                tabBarActiveBackgroundColor: Colors.black,
                 tabBarInactiveBackgroundColor: Colors.white,
                 tabBarShowLabel: false,
                 tabBarItemStyle: MainStyle.item,
                 headerStyle: MainStyle.header,
+                tabBarStyle: MainStyle.tabBar,
             }}
         >
             <Tab.Screen name="Chat" component={Chat} options={{
@@ -50,11 +51,6 @@ function Tabs() {
                 headerShown: false,
                 tabBarIcon: ({ color, size }) => (
                     <Ionicons name="person-outline" color={color} size={size} />
-                ),
-            }} />
-            <Tab.Screen name="Settings" component={Settings} options={{
-                tabBarIcon: ({ color, size }) => (
-                    <Ionicons name="settings-outline" color={color} size={size} />
                 ),
             }} />
         </Tab.Navigator>

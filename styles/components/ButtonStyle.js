@@ -8,7 +8,7 @@ const Height = RFValue(35);
 
 const ButtonStyle = StyleSheet.create({
     base: {
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.black,
         borderRadius: BorderRadius,
         height: Height,
         alignItems: 'center',

@@ -1,4 +1,4 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, ScrollView } from "react-native";
 import ProfileStyle from "../../styles/main/ProfileStyle";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
@@ -7,15 +7,23 @@ import DataKeys from "../../keys/DataKeys";
 import Api from "../../api/Api";
 import axios from "axios";
 import React from "react";
+import { useFonts } from 'expo-font';
 
 const ProfileImage = { uri: 'https://img.olhardigital.com.br/wp-content/uploads/2021/05/Dwayne-The-Rock.png' }
 
-
 const Profile = () => {
     const [userData, changeUserData] = React.useState(Object);
+    const [fontsLoaded] = useFonts({
+        RobotoMedium: require("../../assets/fonts/roboto-mono/RobotoMono-Medium.ttf")
+    });
+
     useEffect(() => {
         GetData();
     }, []);
+
+    if (!fontsLoaded) {
+        return null;
+    }
 
     function GetPass(response) {
         changeUserData(response.data);
@@ -31,7 +39,7 @@ const Profile = () => {
             const data = JSON.parse(value);
             const user_data = JSON.parse(data);
             const token = user_data.accessToken;
-            
+
             const config = axios.create = {
                 method: 'get',
                 url: '/user/my-profile',
@@ -41,8 +49,8 @@ const Profile = () => {
             }
 
             await Api(config)
-            .then((response) => { GetPass(response)})
-            .catch((error) => { console.log(error) })
+                .then((response) => { GetPass(response) })
+                .catch((error) => { console.log(error) })
         }
         catch (error) {
             console.log("Get Data error: " + error);

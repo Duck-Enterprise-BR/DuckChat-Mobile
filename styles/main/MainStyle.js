@@ -7,7 +7,7 @@ const MainStyle = StyleSheet.create({
         flex: 1,
         alignContent: 'center',
         alignItems: 'center',
-        backgroundColor: Colors.white
+        backgroundColor: Colors.white,
     },
 
     navigator: {
@@ -15,12 +15,20 @@ const MainStyle = StyleSheet.create({
     },
 
     item: {
-        borderTopEndRadius: 10,
-        borderTopStartRadius: 10,
+        borderTopEndRadius: 0,
+        borderTopStartRadius: 0,
     },
 
     header: {
         backgroundColor: Colors.gray3
+    },
+
+    tabBar: {
+        height: '6%'
+    },
+
+    icon: {
+        
     }
 })
 
