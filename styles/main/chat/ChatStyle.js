@@ -1,9 +1,12 @@
 import { StyleSheet } from "react-native";
 import Colors from './../../../colors/Colors';
+import { RFValue } from "react-native-responsive-fontsize";
+
+const TabBarBorderRadius = RFValue(50);
 
 const ChatStyle = StyleSheet.create({
     tabBar: {
-        borderRadius: "50%",
+        borderRadius: TabBarBorderRadius,
         width: "40%",
         alignSelf: 'center',
         marginVertical: "5%"
