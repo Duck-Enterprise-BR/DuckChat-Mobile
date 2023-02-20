@@ -1,58 +1,53 @@
 import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { StatusBar } from 'expo-status-bar';
+import { View } from 'react-native';
 
 import Chat from './Chat';
 import Notifications from './Notifications';
 import Profile from './Profile';
-import Settings from './Settings';
-
 import Colors from '../../colors/Colors';
 
 import MainStyle from '../../styles/main/MainStyle';
+import StyledText from '../../components/StyledText';
+import { useFonts } from 'expo-font';
 
 const Main = () => {
+    const [fontsLoaded] = useFonts({
+        RobotoMedium: require("../../assets/fonts/roboto-mono/RobotoMono-Medium.ttf")
+    });
+
+    if (!fontsLoaded) {
+        return null;
+    }
+
     return (
-        <NavigationContainer independent={true}>
-            <Tabs />
-        </NavigationContainer>
+        <View style={MainStyle.base}>
+            <StatusBar style='auto' />
+            <View style={MainStyle.header}>
+                <StyledText text={"DuckChat"} style={MainStyle.headerTitle}/>
+            </View>
+            <NavigationContainer independent={true}>
+                    <Tabs/>
+                </NavigationContainer>
+        </View>
     );
 }
 
-const Tab = createBottomTabNavigator();
+const Tab = createMaterialTopTabNavigator();
 
 function Tabs() {
     return (
-        <Tab.Navigator
-            screenOptions={{
-                headerTintColor: Colors.black,
-                tabBarActiveTintColor: Colors.white,
-                tabBarInactiveTintColor: Colors.black,
-                tabBarActiveBackgroundColor: Colors.black,
-                tabBarInactiveBackgroundColor: Colors.white,
-                tabBarShowLabel: false,
-                tabBarItemStyle: MainStyle.item,
-                headerStyle: MainStyle.header,
-                tabBarStyle: MainStyle.tabBar,
-            }}
-        >
-            <Tab.Screen name="Chat" component={Chat} options={{
-                tabBarIcon: ({ color, size }) => (
-                    <Ionicons name="md-chatbubble-ellipses-outline" color={color} size={size} />
-                ),
-            }} />
-            <Tab.Screen name="Notifications" component={Notifications} options={{
-                tabBarIcon: ({ color, size }) => (
-                    <Ionicons name="notifications-outline" size={size} color={color}/>
-                ),
-            }} />
-            <Tab.Screen name="Profile" component={Profile} options={{ 
-                headerShown: false,
-                tabBarIcon: ({ color, size }) => (
-                    <Ionicons name="person-outline" color={color} size={size} />
-                ),
-            }} />
+        <Tab.Navigator screenOptions={{
+            tabBarShowLabel: true,
+            tabBarLabelStyle: MainStyle.tabBarLabel,
+            tabBarStyle: MainStyle.tabBar,
+            tabBarIndicatorStyle: MainStyle.tabBarIndicator
+        }}>
+            <Tab.Screen name="Chat" component={Chat}/>
+            <Tab.Screen name="Notifications" component={Notifications}/>
+            <Tab.Screen name="Profile" component={Profile}/>
         </Tab.Navigator>
     );
 }

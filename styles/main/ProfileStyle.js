@@ -6,7 +6,7 @@ const ProfileImageSize = RFValue(100);
 const HeaderBorderRadius = RFValue(10);
 const FriendTextSize = RFValue(23);
 const FriendHeaderBorderRadius = RFValue(10);
-const Width = '98%';
+const Width = '100%';
 
 const ProfileStyle = StyleSheet.create({
     base: {
@@ -17,7 +17,7 @@ const ProfileStyle = StyleSheet.create({
 
     header: {
         backgroundColor: Colors.white,
-        height: RFValue(180),
+        height: RFValue(150),
         width: Width,
         flexDirection: 'row',
         borderBottomLeftRadius: HeaderBorderRadius,
@@ -26,8 +26,8 @@ const ProfileStyle = StyleSheet.create({
     },
 
     profileImagem: {
-        marginTop: '15%',
-        marginLeft: '7%',
+        marginTop: '7%',
+        marginLeft: '5%',
         height: ProfileImageSize,
         width: ProfileImageSize,
         borderRadius: RFValue(20),
@@ -38,9 +38,9 @@ const ProfileStyle = StyleSheet.create({
     name: {
         color: Colors.gray4,
         fontSize: RFValue(20),
-        marginTop: '50%',
+        marginTop: '25%',
         marginLeft: '5%',
-        fontWeight: 'bold'
+        fontFamily: 'RobotoMedium'
     },
 
     username: {

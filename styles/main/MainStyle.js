@@ -1,17 +1,16 @@
 import React from "react"
 import { StyleSheet } from "react-native"
 import Colors from "../../colors/Colors";
+import { RFValue } from "react-native-responsive-fontsize";
+
+const HeaderHeight = "9%";
+const HeaderTitleSize = RFValue(20);
+const tabBarLabelSize = RFValue(12);
 
 const MainStyle = StyleSheet.create({
     base: {
         flex: 1,
-        alignContent: 'center',
-        alignItems: 'center',
         backgroundColor: Colors.white,
-    },
-
-    navigator: {
-        
     },
 
     item: {
@@ -20,15 +19,22 @@ const MainStyle = StyleSheet.create({
     },
 
     header: {
-        backgroundColor: Colors.gray3
+        backgroundColor: Colors.white,
+        height: HeaderHeight,
+        justifyContent: 'flex-end',
     },
 
-    tabBar: {
-        height: '6%'
+    headerTitle: {
+        fontSize: HeaderTitleSize
     },
 
-    icon: {
-        
+    tabBarLabel: {
+        fontFamily: "RobotoMedium",
+        fontSize: tabBarLabelSize
+    },
+
+    tabBarIndicator: {
+        backgroundColor: Colors.orange
     }
 })
 

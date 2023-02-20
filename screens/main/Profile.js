@@ -1,6 +1,5 @@
-import { View, Text, Image, ScrollView } from "react-native";
+import { View, Text, Image } from "react-native";
 import ProfileStyle from "../../styles/main/ProfileStyle";
-import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import DataKeys from "../../keys/DataKeys";
@@ -57,17 +56,24 @@ const Profile = () => {
         }
     }
 
-    const Data = {
+/*     const Data = {
         name: userData.name,
         username: "@" + userData.username,
         email: userData.email,
         avatar: userData.avatar,
         id: userData.id
+    } */
+
+    const Data = {
+        name: "Name test",
+        username: "@" + "User test",
+        email: 'email@gmail.com',
+        avatar: null,
+        id: "aaa"
     }
 
     return (
         <View style={ProfileStyle.base}>
-            <StatusBar style='auto' />
             <View style={ProfileStyle.header}>
                 <Image
                     style={ProfileStyle.profileImagem}
