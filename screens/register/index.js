@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { View, Text } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import axios from 'axios';
-import Api from '../../api/Api';
+import Api from '../../api';
 import Toast from 'react-native-toast-message';
 import { useNavigation } from '@react-navigation/native';
 
@@ -130,7 +130,6 @@ const Register = ({ navigation }) => {
                 </View>
                 <ErrorText errorText={textError} />
             </View>
-            <Header title='' />
         </View>
     );
 }

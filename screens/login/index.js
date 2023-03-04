@@ -3,84 +3,51 @@ import { View, Text } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import TextButton from '../../components/textButton';
 import validator from 'validator';
-import axios from 'axios';
-import Api from '../../api/Api';
-import Toast from 'react-native-toast-message';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 //Compo
 import ErrorText from '../../components/errorText';
 import Input from '../../components/input';
 import Button from '../../components/button';
-import Header from '../../components/header';
 
 import Style from './style/style';
 import DataKeys from '../../keys/DataKeys';
+import { Post } from '../../api/index';
 
 const Login = ({ navigation }) => {
     const [textEmail, onChangeEmail] = React.useState('');
     const [textPassWord, onChangePassword] = React.useState('');
     const [isValidEmail, onChangeStateEmail] = React.useState(true);
     const [isHidePasswordText, onChangeHidePasswordText] = React.useState(true);
-
     const [textError, onChangeTextError] = React.useState('');
 
     function ShowPassword() {
         onChangeHidePasswordText(!isHidePasswordText)
     }
 
-    async function StoreData(key, data){
-        try {
-            await AsyncStorage.setItem(key, data);
-        } catch (error) {
-            console.log("Store Data error: " + error);
-        }
-    }
-
     async function Login() {
         onChangeStateEmail(validator.isEmail(textEmail));
-    
+
+        let test = Post();
+        console.log(test)
+
+        navigation.navigate('Main');
+
         const data = {
             "email": textEmail,
             "password": textPassWord
         }
 
-        //console.log(data)
-
-        function erro(error) {
+        function Error(error) {
             console.log("Error: ", error.response.data)
-
             onChangeTextError("Erro code: " + error.response.data.statusCode);
         }
 
-        function pass(response) {
-            console.log(response.data)
+        function Pass(response) {
+            console.log(response.data);
             onChangeTextError('');
-            var message = ('Successfully Logged in')
-            Toast.show({
-                type: 'success',
-                text1: 'Success',
-                text2: message
-            })
             
-            const user_data = JSON.stringify(response.data);
-            StoreData(DataKeys.USER_LOCAL_DATA, JSON.stringify(user_data));
-            
-            navigation.reset({
-                index: 0,
-                routes: [{ name: 'Main' }]
-            })
+            navigation.navigate('Main');
         }
-
-        const config = axios.create = {
-            method: 'post',
-            url: '/auth/login',
-            data: data
-        }
-
-        await Api(config)
-            .then((response) => { pass(response) })
-            .catch((error) => { erro(error) })
     }
 
     function Register() {
@@ -92,7 +59,7 @@ const Login = ({ navigation }) => {
 
     return (
         <View style={Style.base}>
-            <StatusBar style='auto' />
+            <StatusBar/>
             <View style={Style.login}>
                 <Text style={Style.screenName}>
                     Login
@@ -129,9 +96,6 @@ const Login = ({ navigation }) => {
                     errorText={textError}
                 />
             </View>
-            <Header
-                title=''
-            />
         </View>
     );
 }
