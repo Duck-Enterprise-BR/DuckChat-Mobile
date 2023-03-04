@@ -1,13 +1,34 @@
 import React from 'react';
-import { createStackNavigator, Screen } from '@react-navigation/stack';
-import ScreenTeste from './screens/ScreenTeste';
-import Login from "./screens/initial/Login"
-import Main from "./screens/main/Main"
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 
-function App() {
+import Initial from './screens/initial/index';
+import Login from './screens/login/index';
+import Register from './screens/register/index';
+import Main from './screens/main/index';
+import UserInformation from './screens/userInformation/index';
+
+const Stack = createStackNavigator();
+
+function App(navigation) {
   return (
-    <Main />
+    <NavigationContainer>
+      <AppNavigator />
+    </NavigationContainer>
+  )
+}
+
+function AppNavigator() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Initial" component={Initial} />
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Main" component={Main} />
+      <Stack.Screen name="UserInformation" component={UserInformation} />
+      <Stack.Screen name="Register" component={Register} />
+    </Stack.Navigator>
   );
 }
+
 
 export default App;
