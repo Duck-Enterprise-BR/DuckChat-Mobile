@@ -10,7 +10,6 @@ import Input from '../../components/input';
 import Button from '../../components/button';
 
 import Style from './style/style';
-import DataKeys from '../../keys/DataKeys';
 import { Post } from '../../api/index';
 
 const Login = ({ navigation }) => {

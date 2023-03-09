@@ -1,9 +1,10 @@
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Chat from './chat/index'
-import Notifications from './notifications/index'
-import Profile from './profile/index'
 import Style from './style/style'
+
+import All from './chats/all/index';
+import Friends from './chats/friends/index';
+import Groups from './chats/groups/index';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -15,9 +16,9 @@ const Routes = () => {
             tabBarStyle: Style.tabBar,
             tabBarIndicatorStyle: Style.tabBarIndicator
         }}>
-            <Tab.Screen name="Chat" component={Chat}/>
-            <Tab.Screen name="Notifications" component={Notifications}/>
-            <Tab.Screen name="Profile" component={Profile}/>
+            <Tab.Screen name="Conversas" component={All}/>
+            <Tab.Screen name="Amigos" component={Friends}/>
+            <Tab.Screen name="Grupos" component={Groups}/>
         </Tab.Navigator>
     );
 }
